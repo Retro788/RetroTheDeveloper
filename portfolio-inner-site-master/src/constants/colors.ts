@@ -2,7 +2,7 @@ const colors = {
     white: '#FFFFFF',
     black: '#000000',
     // Puedes poner una URL de imagen directamente
-    turquoise: 'https://i.pinimg.com/originals/05/f1/7d/05f17d6e87ad18f65940f896f4cf11a4.gif',
+    turquoise: 'https://pbs.twimg.com/media/EARTR-RXYAAwMmk.png:large',
     lightGray: '#c3c6ca',
     darkGray: '#86898d',
     blue: '#0000a3',
