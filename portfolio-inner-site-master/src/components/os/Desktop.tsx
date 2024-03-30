@@ -12,6 +12,10 @@ import Scrabble from '../applications/Scrabble';
 import { IconName } from '../../assets/icons';
 import Credits from '../applications/Credits';
 import Internet from '../applications/Internet';
+import Habbo from '../applications/Habbo';
+import Radio from '../applications/Radio';
+import mac from '../applications/mac';
+import minecraft from '../applications/minecraft';
 export interface DesktopProps {}
 
 type ExtendedWindowAppProps<T> = T & WindowAppProps;
@@ -48,6 +52,30 @@ const APPLICATIONS: {
         shortcutIcon: 'internetIcon',
         component: Internet,
     },
+    Habbo: {
+        key: 'Habbo',
+        name: 'habbo hotel',
+        shortcutIcon: 'habbo',
+        component: Habbo,
+    },
+    Radio: {
+        key: 'Radio',
+        name: 'Radio Lo-Fi',
+        shortcutIcon: 'radio',
+        component: Radio,
+    },
+    mac: {
+        key: 'mac',
+        name: 'Lo-Fi Moment',
+        shortcutIcon: 'mac',
+        component: mac,
+    },
+    minecraft: {
+        key: 'minecraft',
+        name: '',
+        shortcutIcon: 'minecraft',
+        component: minecraft,
+    },
     doom: {
         key: 'doom',
         name: 'Doom',
@@ -72,6 +100,7 @@ const APPLICATIONS: {
         shortcutIcon: 'credits',
         component: Credits,
     },
+    
 };
 
 const Desktop: React.FC<DesktopProps> = (props) => {
@@ -231,23 +260,25 @@ const Desktop: React.FC<DesktopProps> = (props) => {
                 );
             })}
             <div style={styles.shortcuts}>
-                {shortcuts.map((shortcut, i) => {
-                    return (
-                        <div
-                            style={Object.assign({}, styles.shortcutContainer, {
-                                top: i * 104,
-                            })}
-                            key={shortcut.shortcutName}
-                        >
-                            <DesktopShortcut
-                                icon={shortcut.icon}
-                                shortcutName={shortcut.shortcutName}
-                                onOpen={shortcut.onOpen}
-                            />
-                        </div>
-                    );
+    {shortcuts.map((shortcut, i) => {
+        return (
+            <div
+                style={Object.assign({}, styles.shortcutContainer, {
+                    left: 16 + i * 104,
                 })}
+                key={shortcut.shortcutName}
+            >
+                <DesktopShortcut
+                    icon={shortcut.icon}
+                    shortcutName={shortcut.shortcutName}
+                    onOpen={shortcut.onOpen}
+                />
             </div>
+        );
+    })}
+</div>
+
+
             <Toolbar
                 windows={windows}
                 toggleMinimize={toggleMinimize}
